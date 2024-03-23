@@ -28,16 +28,13 @@ class AdicionarTarefaActivity : AppCompatActivity() {
                 val tarefaDAO = TarefaDAO(this)
                 if (tarefaDAO.salvar(tarefa)){
                     Toast.makeText(this, "Tarefa cadastrada com sucesso", Toast.LENGTH_SHORT).show()
+                    finish()
                 }
 
             }else{
                 Toast.makeText(this, "Preencha uma tarefa", Toast.LENGTH_SHORT).show()
-                finish()
             }
         }
     }
 
-    private fun salvar() {
-        TODO("Not yet implemented")
-    }
 }

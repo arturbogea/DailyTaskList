@@ -56,7 +56,7 @@ class TarefaDAO(context: Context) : ITarefaDAO {
 
         val listaTarefas = mutableListOf<Tarefa>()
 
-        val sql = "SELECT ${DatabaseHelper.COLUNA_ID_TAREFAS}, ${DatabaseHelper.COLUNA_DESCRICAO}, strftime('%d/%m/%y', ${DatabaseHelper.COLUNA_DATA_CADASTRO}) ${DatabaseHelper.COLUNA_DATA_CADASTRO} FROM ${DatabaseHelper.NOME_TABELA_TAREFAS}"
+        val sql = "SELECT ${DatabaseHelper.COLUNA_ID_TAREFAS}, ${DatabaseHelper.COLUNA_DESCRICAO}, strftime('%d/%m/%Y %H:%M', ${DatabaseHelper.COLUNA_DATA_CADASTRO}) ${DatabaseHelper.COLUNA_DATA_CADASTRO}  from ${DatabaseHelper.NOME_TABELA_TAREFAS}"
 
         val cursor = leitura.rawQuery(sql, null)
 
