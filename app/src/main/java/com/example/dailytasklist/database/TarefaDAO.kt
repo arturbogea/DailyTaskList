@@ -34,19 +34,32 @@ class TarefaDAO(context: Context) : ITarefaDAO {
 
     override fun atualizar(tarefa: Tarefa): Boolean {
 
-        try {
+        val args = arrayOf(tarefa.idTarefa.toString())
+        val conteudo = ContentValues()
+        conteudo.put("${DatabaseHelper.COLUNA_DESCRICAO}", tarefa.descricao)
 
+        try {
+            escrita.update(DatabaseHelper.NOME_TABELA_TAREFAS, conteudo, "${DatabaseHelper.COLUNA_ID_TAREFAS} = ?", args)
+            Log.i("info_db", "Sucesso ao atualizar tarefa")
         }catch (e: Exception){
+            e.printStackTrace()
+            Log.i("info_db", "Erro ao atualizar tarefa")
             return false
         }
         return true
+
     }
 
-    override fun deletar(id: Int): Boolean {
+    override fun deletar(idTarefas: Int): Boolean {
+
+        val args = arrayOf(idTarefas.toString())
 
         try {
-
+            escrita.delete(DatabaseHelper.NOME_TABELA_TAREFAS, "${DatabaseHelper.COLUNA_ID_TAREFAS} = ?", args)
+            Log.i("info_db", "Sucesso ao remover tarefa")
         }catch (e: Exception){
+            e.printStackTrace()
+            Log.i("info_db", "Erro ao remover tarefa")
             return false
         }
         return true
