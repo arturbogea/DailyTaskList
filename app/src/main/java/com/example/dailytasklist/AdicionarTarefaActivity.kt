@@ -22,7 +22,7 @@ class AdicionarTarefaActivity : AppCompatActivity() {
 
         val bundle = intent.extras
         if (bundle != null){
-            val tarefa = bundle.getSerializable("tarefas") as Tarefa
+            val tarefa = bundle.getSerializable("tarefa") as Tarefa
             binding.editTarefa.setText(tarefa.descricao)
         }
 
